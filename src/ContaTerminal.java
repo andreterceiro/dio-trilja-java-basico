@@ -56,7 +56,7 @@ public class ContaTerminal {
             "Olá " + getNomeCliente() +
             ", obrigado por criar uma conta em nosso banco, sua agência é " + getAgencia() + 
             ", conta " + getNumeroConta() + 
-            " e seu saldo " + getSaldo() + "(R$) já está disponível para saque"
+            " e seu saldo R$" + getSaldo() + " já está disponível para saque"
         );
     }
 
@@ -131,9 +131,9 @@ public class ContaTerminal {
      * @param _saldo Valor a ser configurado
      */ 
     public static void setSaldo(Double _saldo) throws Exception {
-        // O limite é 10.000.000
-        if (_saldo < -10000000 || _saldo > 10000000) {
-            throw new Exception("O saldo deve ficar entre -10.000.000 e 10.000.000");
+        // O saldo deve estar entre 1 e 10.000.000
+        if (_saldo < 1 || _saldo > 10000000) {
+            throw new Exception("O saldo deve ficar entre 1 e 10.000.000");
         } 
         // Deixando apenas 2 casas decimais
         _saldo = ((int) (_saldo * 100.0))/100.0;
